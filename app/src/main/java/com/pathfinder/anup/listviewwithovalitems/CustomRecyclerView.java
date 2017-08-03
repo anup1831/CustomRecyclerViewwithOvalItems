@@ -1,6 +1,7 @@
 package com.pathfinder.anup.listviewwithovalitems;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pathfinder.anup.location.LocationTracker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,6 +149,9 @@ public class CustomRecyclerView extends RecyclerView.Adapter<CustomRecyclerView.
             txtTimeStamp.setBackgroundResource(R.drawable.oval_red);
             txtTimeStamp.setEnabled(false);
             Toast.makeText(context, "Clicked!", Toast.LENGTH_SHORT).show();
+            Intent startLocationScr = new Intent(context, LocationTracker.class);
+            startLocationScr.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(startLocationScr);
         }
     }
 
